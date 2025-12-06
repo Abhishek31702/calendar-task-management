@@ -1,0 +1,389 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    height: 100vh;
+}
+
+.row {
+    height: 100%;
+}
+
+/* Sidebar Styles */
+.left-sidebar, .right-sidebar {
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid #dee2e6;
+}
+
+.right-sidebar {
+    border-right: none;
+    border-left: 1px solid #dee2e6;
+}
+
+/* Mini Calendar */
+.mini-calendar {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.mini-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+}
+
+.mini-day-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #6c757d;
+    padding: 4px 0;
+}
+
+.mini-day {
+    padding: 6px 0;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.mini-day:hover {
+    background-color: #e9ecef;
+}
+
+.mini-day.today {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: bold;
+}
+
+.mini-day.selected {
+    background-color: #198754;
+    color: white;
+}
+
+.mini-day.has-task {
+    position: relative;
+}
+
+.mini-day.has-task::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: #dc3545;
+    border-radius: 50%;
+}
+
+/* Categories List */
+.categories-list {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.category-item:hover {
+    background-color: #f8f9fa;
+}
+
+.category-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.category-name {
+    font-size: 0.9rem;
+}
+
+/* Filter Sidebar Styles */
+.categories-filter {
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.category-check {
+    padding: 6px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    margin-bottom: 4px;
+}
+
+.category-check:hover {
+    background-color: #f8f9fa;
+}
+
+.category-check.active {
+    background-color: #e7f3ff;
+}
+
+.category-check label {
+    cursor: pointer;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.priority-filter, .status-filter, .date-filter {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-width: 1px;
+}
+
+.priority-filter.active, .status-filter.active, .date-filter.active {
+    background-color: #0d6efd;
+    color: white;
+    border-color: #0d6efd;
+}
+
+#quick_search {
+    border-radius: 20px;
+    padding-left: 12px;
+}
+
+#filterStatus {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+}
+
+.filter-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 0 4px;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 12px;
+    font-size: 0.75rem;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.calendar-day-header {
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+    color: #495057;
+    font-size: 0.9rem;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.calendar-day {
+    min-height: 120px;
+    padding: 8px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: white;
+}
+
+.calendar-day:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.calendar-day.empty {
+    background-color: #f8f9fa;
+    cursor: default;
+}
+
+.calendar-day.empty:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+.calendar-day.today {
+    background-color: #e7f3ff;
+    border-color: #0d6efd;
+}
+
+.calendar-day.selected {
+    background-color: #d1e7dd;
+    border-color: #198754;
+    box-shadow: 0 0 0 2px #198754;
+}
+
+.day-number {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #212529;
+}
+
+.day-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.task-pill {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    background-color: #f8f9fa;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.task-pill.completed {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+/* Task Cards */
+.task-card {
+    background: white;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-left: 4px solid #0d6efd;
+    transition: all 0.2s;
+}
+
+.task-card:hover {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.task-card.completed {
+    opacity: 0.7;
+}
+
+.task-title {
+    font-weight: 500;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.task-description {
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.task-checkbox {
+    cursor: pointer;
+}
+
+/* Priority Badges */
+.badge.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+.badge.bg-warning {
+    background-color: #ffc107 !important;
+    color: #000;
+}
+
+.badge.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+/* Buttons */
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 0.875rem;
+}
+
+/* Modal Improvements */
+.modal-content {
+    border-radius: 12px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .left-sidebar, .right-sidebar {
+        display: none;
+    }
+    
+    .calendar-grid {
+        gap: 4px;
+    }
+    
+    .calendar-day {
+        min-height: 80px;
+        padding: 4px;
+    }
+    
+    .day-number {
+        font-size: 0.9rem;
+    }
+    
+    .task-pill {
+        font-size: 0.65rem;
+        padding: 2px 4px;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0,0,0,.1);
+    border-radius: 50%;
+    border-top-color: #0d6efd;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
